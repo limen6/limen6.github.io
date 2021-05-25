@@ -14,7 +14,7 @@
     
     花在枝</title>
   
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="img/favicon.png">
   
   
 <link rel="stylesheet" href="/limen6/limen6.github.io.git/css/style.css">
@@ -110,8 +110,6 @@
     <ul class="list-inline">
       <li>花在枝 &copy; 2021</li>
       
-        <li></li>
-      
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
     </ul>
@@ -119,61 +117,146 @@
 </footer>
   </main>
   <aside class="sidebar">
-    <button class="navbar-toggle"></button>
-<nav class="navbar">
-  
-  <div class="logo">
-    <a href="/limen6/limen6.github.io.git/"><img src="/images/hexo.svg" alt="花在枝"></a>
-  </div>
-  
-  <ul class="nav nav-main">
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/limen6/limen6.github.io.git/">Home</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/limen6/limen6.github.io.git/Archives">Archives</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/limen6/limen6.github.io.git/Gallery">Gallery</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/limen6/limen6.github.io.git/About">About</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link nav-item-search" title="Search">
-        <i class="fe fe-search"></i>
-        Search
-      </a>
-    </li>
-  </ul>
-</nav>
-<nav class="navbar navbar-bottom">
-  <ul class="nav">
-    <li class="nav-item">
-      <div class="totop" id="totop">
-  <i class="fe fe-rocket"></i>
+    <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
 </div>
-    </li>
-    <li class="nav-item">
-      
-      <a class="nav-item-link" target="_blank" href="/limen6/limen6.github.io.git/llmy.love" title="RSS Feed">
-        <i class="fe fe-feed"></i>
-      </a>
-      
-    </li>
-  </ul>
-</nav>
-<div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
-</div>
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      {% set display_toc = is_post and theme.toc.enable %}
+
+      {% if display_toc and toc(page.content).length > 1 %}
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            {{ __('sidebar.toc') }}
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            {{ __('sidebar.overview') }}
+          </li>
+        </ul>
+      {% endif %}
+
+      <section class="site-overview sidebar-panel{% if not display_toc or toc(page.content).length <= 1 %} sidebar-panel-active{% endif %}">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="{{ url_for( theme.avatar | default(theme.images + '/avatar.gif') ) }}"
+               alt="{{ theme.author }}" />
+          <p class="site-author-name" itemprop="name">{{ theme.author }}</p>
+          <p class="site-description motion-element" itemprop="description">{{ theme.description }}</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          {% if config.archive_dir != '/' %}
+            <div class="site-state-item site-state-posts">
+              <a href="{{ url_for(theme.menu.archives) }}">
+                <span class="site-state-item-count">{{ site.posts.length }}</span>
+                <span class="site-state-item-name">{{ __('state.posts') }}</span>
+              </a>
+            </div>
+          {% endif %}
+
+          {% if site.categories.length > 0 %}
+            <div class="site-state-item site-state-categories">
+              {% if theme.menu.categories %}<a href="{{ url_for(theme.menu.categories) }}">{% endif %}
+                <span class="site-state-item-count">{{ site.categories.length }}</span>
+                <span class="site-state-item-name">{{ __('state.categories') }}</span>
+              {% if theme.menu.categories %}</a>{% endif %}
+            </div>
+          {% endif %}
+
+          {% if site.tags.length > 0 %}
+            <div class="site-state-item site-state-tags">
+              {% if theme.menu.tags %}<a href="{{ url_for(theme.menu.tags) }}">{% endif %}
+                <span class="site-state-item-count">{{ site.tags.length }}</span>
+                <span class="site-state-item-name">{{ __('state.tags') }}</span>
+              {% if theme.menu.tags %}</a>{% endif %}
+            </div>
+          {% endif %}
+
+        </nav>
+
+        {% if theme.rss %}
+          <div class="feed-link motion-element">
+            <a href="{{ url_for(theme.rss) }}" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        {% endif %}
+
+        <div class="links-of-author motion-element">
+          {% if theme.social %}
+            {% for name, link in theme.social %}
+              <span class="links-of-author-item">
+                <a href="{{ link }}" target="_blank" title="{{ name }}">
+                  {% if theme.social_icons.enable %}
+                    <i class="fa fa-fw fa-{{ theme.social_icons[name] | default('globe') | lower }}"></i>
+                  {% endif %}
+                  {{ name }}
+                </a>
+              </span>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        {% set cc = {'by': 1, 'by-nc': 1, 'by-nc-nd': 1, 'by-nc-sa': 1, 'by-nd': 1, 'by-sa': 1, 'zero': 1} %}
+        {% if theme.creative_commons in cc %}
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/{% if theme.creative_commons === 'zero' %}publicdomain/zero/1.0{% else %}licenses/{{ theme.creative_commons }}/4.0{% endif %}/" class="cc-opacity" target="_blank">
+              <img src="{{ url_for(theme.images) }}/cc-{{ theme.creative_commons }}.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        {% endif %}
+
+        {# Blogroll #}
+        {% if theme.links %}
+          <div class="links-of-blogroll motion-element {{ "links-of-blogroll-" + theme.links_layout | default('inline') }}">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-{{ theme.links_icon | default('globe') | lower }}"></i>
+              {{ theme.links_title }}
+            </div>
+            <ul class="links-of-blogroll-list">
+              {% for name, link in theme.links %}
+                <li class="links-of-blogroll-item">
+                  <a href="{{ link }}" title="{{ name }}" target="_blank">{{ name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% include '../_custom/sidebar.swig' %}
+
+      </section>
+
+      {% if display_toc and toc(page.content).length > 1 %}
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            {% if page.toc_number === undefined %}
+              {% set toc = toc(page.content, { "class": "nav", list_number: theme.toc.number }) %}
+            {% else %}
+              {% set toc = toc(page.content, { "class": "nav", list_number: page.toc_number }) %}
+            {% endif %}
+
+            {% if toc.length <= 1 %}
+              <p class="post-toc-empty">{{ __('post.toc_empty') }}</p>
+            {% else %}
+              <div class="post-toc-content">{{ toc }}</div>
+            {% endif %}
+
+          </div>
+        </section>
+      <!--/noindex-->
+      {% endif %}
+
+    </div>
+</aside>
   </aside>
   
 <script src="/limen6/limen6.github.io.git/js/jquery-2.0.3.min.js"></script>
@@ -191,10 +274,6 @@
 
 <script src="/limen6/limen6.github.io.git/fancybox/jquery.fancybox.min.js"></script>
 
-
-
-
-<script src="/limen6/limen6.github.io.git/js/copybtn.js"></script>
 
 
 
