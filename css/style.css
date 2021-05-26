@@ -226,7 +226,7 @@ body,
 }
 ::selection {
   color: #fff;
-  background: #c57cac;
+  background: #c84c90;
 }
 body {
   background: #eaeaea;
@@ -274,14 +274,14 @@ code {
 .logo {
   display: block;
   padding: 10px 0;
-  width: 200px;
-  height: 55px;
-  background-image: url("https://lzt00001.oss-cn-beijing.aliyuncs.com/iOS14%E5%86%85%E7%BD%AE%E5%A3%81%E7%BA%B8/LiangZaiTing.png");
+  width: 213px;
+  height: 74px;
+  background-image: url("images/liangzaiting.png");
   background-position: 0px 10px;
   background-repeat: no-repeat;
-  -webkit-background-size: 200px 55px;
-  -moz-background-size: 200px 55px;
-  background-size: 200px 55px;
+  -webkit-background-size: 213px 74px;
+  -moz-background-size: 213px 74px;
+  background-size: 213px 74px;
 }
 .main-body {
   margin-top: -60px;
@@ -378,7 +378,7 @@ code {
 #header-title .subtitle {
   font-size: 16px;
   font-style: italic;
-  line-height: 65px;
+  line-height: 84px;
   color: rgba(255,255,255,0.7);
   text-shadow: 0 1px rgba(0,0,0,0.2);
 }
@@ -564,7 +564,7 @@ code {
   display: none;
 }
 #sidebar .sidebar-top {
-  background: #c57cac;
+  background: #c84c90;
   padding: 15px 30px;
 }
 #sidebar .sidebar-top:before,
@@ -683,7 +683,7 @@ code {
   background: rgba(0,0,0,0.02);
 }
 .article-nav-link-wrap:hover .icon {
-  color: #c57cac;
+  color: #c84c90;
 }
 .article-nav-caption {
   display: block;
@@ -857,7 +857,7 @@ code {
   text-transform: uppercase;
 }
 #recent-post li .item-inner .item-category a {
-  color: #c57cac;
+  color: #c84c90;
 }
 #recent-post li .item-inner .item-category a:hover {
   color: #444;
@@ -885,7 +885,7 @@ code {
   opacity: 0.8;
 }
 #recent-post li:hover .item-title a {
-  color: #c57cac;
+  color: #c84c90;
 }
 .category-list-count,
 .tag-list-count,
@@ -949,7 +949,7 @@ code {
 }
 .article-summary a {
   text-decoration: none;
-  color: #c57cac;
+  color: #c84c90;
 }
 .article-summary .article-summary-inner {
   margin-right: 30px;
@@ -1032,7 +1032,7 @@ code {
   opacity: 0.7;
 }
 .article-summary:hover .article-title a {
-  color: #c57cac;
+  color: #c84c90;
 }
 .article-category {
   float: left;
@@ -1057,7 +1057,7 @@ code {
   margin-bottom: 10px;
 }
 a.article-title:hover {
-  color: #c57cac;
+  color: #c84c90;
 }
 .article-meta {
   line-height: 1.6em;
@@ -1096,7 +1096,7 @@ a.article-title:hover {
   overflow: hidden;
 }
 .article-summary .article-meta a {
-  color: #c57cac;
+  color: #c84c90;
 }
 .article-summary .article-meta > div {
   margin-right: 0;
@@ -1140,7 +1140,7 @@ a.article-title:hover {
   margin: 1.3em 0;
 }
 .article-entry a {
-  color: #c57cac;
+  color: #c84c90;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -1262,10 +1262,10 @@ a.article-title:hover {
   text-decoration: none;
 }
 .article-more-link a:hover {
-  background: #c57cac;
+  background: #c84c90;
   color: #fff;
   text-decoration: none;
-  text-shadow: 0 1px #b15090;
+  text-shadow: 0 1px #a93474;
 }
 .article-footer {
   font-size: 14px;
@@ -1488,7 +1488,7 @@ a.article-title:hover {
   padding: 30px 30px 20px;
 }
 #comments a {
-  color: #c57cac;
+  color: #c84c90;
 }
 .archives-wrap {
   margin: block-margin 0;
@@ -1544,7 +1544,7 @@ a.article-title:hover {
   line-height: 1.6em;
 }
 .archive-article-title:hover {
-  color: #c57cac;
+  color: #c84c90;
 }
 .archive-article-footer {
   margin-top: 1em;
@@ -1587,7 +1587,7 @@ a.article-title:hover {
 }
 #page-nav .page-number,
 #page-nav .extend {
-  color: #c57cac;
+  color: #c84c90;
   position: relative;
   overflow: hidden;
   font-size: 16px;
@@ -1610,7 +1610,7 @@ a.article-title:hover {
 #page-nav .page-number.current,
 #page-nav .extend.current {
   color: #444;
-  border-bottom: 3px solid #c57cac;
+  border-bottom: 3px solid #c84c90;
   border-top: 1px solid #f1f1f1;
 }
 #page-nav .space {
@@ -1656,11 +1656,11 @@ a.article-title:hover {
   line-height: 22px;
 }
 #footer .logo {
-  width: 160px;
-  height: 44px;
-  -webkit-background-size: 160px 44px;
-  -moz-background-size: 160px 44px;
-  background-size: 160px 44px;
+  width: 170.4px;
+  height: 59.2px;
+  -webkit-background-size: 170.4px 59.2px;
+  -moz-background-size: 170.4px 59.2px;
+  background-size: 170.4px 59.2px;
 }
 i.icon {
   display: inline-block;
@@ -1727,7 +1727,7 @@ i.icon:before {
   display: inline-block;
 }
 .ins-close:hover {
-  color: #c57cac;
+  color: #c84c90;
 }
 .ins-search-container {
   left: 50%;
@@ -1802,7 +1802,7 @@ i.icon:before {
 .ins-section .ins-search-item:hover,
 .ins-section .ins-search-item.active {
   color: #fff;
-  background: #c57cac;
+  background: #c84c90;
 }
 .ins-section .ins-search-item:hover .ins-slug,
 .ins-section .ins-search-item.active .ins-slug,
@@ -1944,7 +1944,7 @@ i.icon:before {
     color: rgba(255,255,255,0.7);
     text-align: center;
     height: 50px;
-    background: #c57cac;
+    background: #c84c90;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
